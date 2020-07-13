@@ -81,7 +81,7 @@
                   href="http://www.villaexmagnirizzoli.it/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Più info</a
+                  >info</a
                 >
               </p>
               <p class="pt-8 text-xl">
