@@ -11,7 +11,7 @@
       }"
     >
       <div
-        class="bg-cover fixed top-0 right-0 bottom-0 left-0"
+        class="bg-cover fixed top-0 right-0 bottom-0 left-0 overflow-auto"
         v-bind:style="{
           backgroundImage: `url('${data.theme.backgroundImage.url}')`,
         }"
@@ -60,11 +60,15 @@
                 {{ data.profile.profession }}
               </p>
               <p
-                class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"
+                class=""
+                v-bind:class="[
+                  'pt-2 text-xs lg:text-sm flex items-center justify-center lg:justify-start',
+                  nightMode ? 'text-gray-400' : 'text-gray-900',
+                ]"
               >
                 <a
                   class="pr-4"
-                  href="http://www.villaexmagnirizzoli.it/"
+                  href="https://www.google.com/maps/place/Villa+Ex+Magni+Rizzoli/@45.8527137,9.270366,17z/data=!3m1!4b1!4m5!3m4!1s0x47841e4836e82773:0x4e1bed367587a67b!8m2!3d45.85271!4d9.27256"
                   target="_blank"
                   rel="noopener noreferrer"
                   ><font-awesome-icon
@@ -77,24 +81,32 @@
 
                 {{ data.profile.location }} -
                 <a
-                  class="link ml-1"
+                  class="link mx-1"
                   href="http://www.villaexmagnirizzoli.it/"
                   target="_blank"
                   rel="noopener noreferrer"
                   >info</a
                 >
+                -
+                <a
+                  class="link ml-1"
+                  href="https://www.google.com/maps/place/Villa+Ex+Magni+Rizzoli/@45.8527137,9.270366,17z/data=!3m1!4b1!4m5!3m4!1s0x47841e4836e82773:0x4e1bed367587a67b!8m2!3d45.85271!4d9.27256"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >map</a
+                >
               </p>
               <p class="pt-8 text-xl">
                 <bold>{{ data.profile.dateAndHours }}</bold>
               </p>
-              <p class="pt-8 text-base">
+              <p class="pt-2 text-base">
                 {{ data.profile.description }}
               </p>
-              <p class="pt-8 text-sm">
+              <p class="pt-3 text-sm">
                 {{ data.profile.graditaConferma }}
               </p>
 
-              <div class="pt-12 pb-8">
+              <div class="pt-6 flex justify-center pb-8">
                 <a
                   v-bind:href="`mailto:${data.profile.email}`"
                   class=""
@@ -110,6 +122,8 @@
 
               <div class="">
                 <a
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.instagram.com/explore/tags/francoetiziana/"
                   class="link text-xl mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start"
                 >
@@ -128,11 +142,11 @@
             </div>
           </div>
 
-          <div class="w-full lg:w-2/5">
+          <div class="w-full lg:w-2/5 hidden lg:block">
             <!-- Big profile image for side bar (desktop) -->
             <datocms-image
               :data="data.profile.photo.desktopImage"
-              class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
+              class="rounded-none lg:rounded-lg shadow-2xl"
             />
             <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
           </div>
@@ -200,7 +214,7 @@ export default {
               longitude
             }
             photo {
-              desktopImage: responsiveImage(imgixParams: { w: 360, h: 540, fit: crop, crop: faces, auto: format }) {
+              desktopImage: responsiveImage(imgixParams: { w: 360, h: 680, fit: crop, crop: faces, auto: format }) {
                 ...imageFields
               }
               mobileImage: responsiveImage(imgixParams: { w: 192, h: 192, fit: crop, crop: faces, auto: format }) {
