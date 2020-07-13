@@ -120,12 +120,12 @@
                 </a>
               </div>
 
-              <div class="">
+              <div class="flex items-center flex-wrap">
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.instagram.com/explore/tags/francoetiziana/"
-                  class="link text-xl mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start"
+                  class="link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center"
                 >
                   <font-awesome-icon
                     :icon="['fab', 'instagram']"
@@ -137,6 +137,23 @@
                     ]"
                   />
                   <span>#francoetiziana</span>
+                </a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  v-bind:href="`${data.theme.backgroundImage.url}`"
+                  class="link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center"
+                >
+                  <font-awesome-icon
+                    :icon="['fas', 'image']"
+                    size="2x"
+                    class=""
+                    v-bind:class="[
+                      'fill-current text-gray-600 ml-3 mr-3 lg:ml-0 lg:mr-5',
+                      `hover:text-${data.theme.color}-700`,
+                    ]"
+                  />
+                  <span>Guarda l'invito</span>
                 </a>
               </div>
             </div>

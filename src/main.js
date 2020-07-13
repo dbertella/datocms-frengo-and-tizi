@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faHeartbeat, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faHeartbeat, faImage, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { DatocmsImagePlugin } from "vue-datocms";
 import {
   faFacebook,
@@ -17,6 +17,7 @@ import App from "./App.vue";
 import "./assets/tailwind.css";
 
 library.add(faHeartbeat);
+library.add(faImage);
 library.add(faTwitter);
 library.add(faGithub);
 library.add(faDribbble);
