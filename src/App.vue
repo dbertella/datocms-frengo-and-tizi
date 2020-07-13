@@ -4,16 +4,16 @@
       v-bind:class="[
         'bg-cover fixed top-0 right-0 bottom-0 left-0 font-sans antialiased leading-normal',
         nightMode ? 'text-gray-100' : 'text-gray-900',
-        nightMode ? 'text-gray-100' : 'text-gray-900'
+        nightMode ? 'text-gray-100' : 'text-gray-900',
       ]"
       v-bind:style="{
-        backgroundImage: `url('${data.theme.backgroundImage.responsiveImage.base64}')`
+        backgroundImage: `url('${data.theme.backgroundImage.responsiveImage.base64}')`,
       }"
     >
       <div
         class="bg-cover fixed top-0 right-0 bottom-0 left-0"
         v-bind:style="{
-          backgroundImage: `url('${data.theme.backgroundImage.url}')`
+          backgroundImage: `url('${data.theme.backgroundImage.url}')`,
         }"
       >
         <div
@@ -24,7 +24,7 @@
             id="profile"
             v-bind:class="[
               'w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-75 mx-6 lg:mx-0',
-              nightMode ? 'bg-gray-900' : 'bg-white'
+              nightMode ? 'bg-gray-900' : 'bg-white',
             ]"
           >
             <div class="p-4 md:p-12 text-center lg:text-left">
@@ -42,7 +42,7 @@
               <div
                 v-bind:class="[
                   'mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 opacity-25',
-                  `border-${data.theme.color}-500`
+                  `border-${data.theme.color}-500`,
                 ]"
               ></div>
               <p
@@ -50,10 +50,10 @@
               >
                 <span class="pr-4"
                   ><font-awesome-icon
-                    icon="briefcase"
+                    icon="heartbeat"
                     v-bind:class="[
                       'h-4 fill-current',
-                      `text-${data.theme.color}-700`
+                      `text-${data.theme.color}-700`,
                     ]"
                 /></span>
 
@@ -62,21 +62,36 @@
               <p
                 class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"
               >
-                <span class="pr-4"
+                <a
+                  class="pr-4"
+                  href="http://www.villaexmagnirizzoli.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   ><font-awesome-icon
                     icon="globe"
                     v-bind:class="[
                       'h-4 fill-current',
-                      `text-${data.theme.color}-700`
+                      `text-${data.theme.color}-700`,
                     ]"
-                /></span>
+                /></a>
 
                 {{ data.profile.location }} -
-                {{ data.profile.coordinates.latitude }}° N,
-                {{ data.profile.coordinates.longitude }}° W
+                <a
+                  class="link ml-1"
+                  href="http://www.villaexmagnirizzoli.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Più info</a
+                >
+              </p>
+              <p class="pt-8 text-xl">
+                <bold>{{ data.profile.dateAndHours }}</bold>
+              </p>
+              <p class="pt-8 text-base">
+                {{ data.profile.description }}
               </p>
               <p class="pt-8 text-sm">
-                {{ data.profile.description }}
+                {{ data.profile.graditaConferma }}
               </p>
 
               <div class="pt-12 pb-8">
@@ -86,31 +101,28 @@
                   v-bind:class="[
                     'text-white font-bold py-2 px-4 rounded-full',
                     `bg-${data.theme.color}-700`,
-                    `hover:bg-${data.theme.color}-900`
+                    `hover:bg-${data.theme.color}-900`,
                   ]"
                 >
-                  Get In Touch
+                  Scrivi a {{ data.profile.email }}
                 </a>
               </div>
 
-              <div
-                class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start"
-              >
+              <div class="">
                 <a
-                  v-for="profile in data.socials"
-                  class="link"
-                  v-bind:href="profile.url"
-                  :key="profile.social"
+                  href="https://www.instagram.com/explore/tags/francoetiziana/"
+                  class="link text-xl mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-center lg:justify-start"
                 >
                   <font-awesome-icon
-                    :icon="['fab', profile.social]"
+                    :icon="['fab', 'instagram']"
                     size="2x"
                     class=""
                     v-bind:class="[
                       'fill-current text-gray-600 ml-3 mr-3 lg:ml-0 lg:mr-5',
-                      `hover:text-${data.theme.color}-700`
+                      `hover:text-${data.theme.color}-700`,
                     ]"
                   />
+                  <span>#francoetiziana</span>
                 </a>
               </div>
             </div>
@@ -149,13 +161,13 @@ export default {
   data() {
     return {
       nightMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
-      data: null
+      data: null,
     };
   },
   methods: {
     toggleDayNight() {
       this.nightMode = !this.nightMode;
-    }
+    },
   },
   metaInfo() {
     if (!this || !this.data) {
@@ -177,7 +189,9 @@ export default {
               ...metaTagsFragment
             }
             name
+            dateAndHours
             description
+            graditaConferma
             profession
             location
             email
@@ -203,10 +217,6 @@ export default {
               }
             }
           }
-          socials: allSocials {
-            social
-            url
-          }
         }
 
         fragment metaTagsFragment on Tag {
@@ -224,8 +234,8 @@ export default {
           title
           base64
         }
-      `
+      `,
     });
-  }
+  },
 };
 </script>
