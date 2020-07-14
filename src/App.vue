@@ -48,14 +48,7 @@
               <p
                 class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
               >
-                <span class="pr-4"
-                  ><font-awesome-icon
-                    icon="heartbeat"
-                    v-bind:class="[
-                      'h-4 fill-current',
-                      `text-${data.theme.color}-700`,
-                    ]"
-                /></span>
+                <span class="pr-4">💍</span>
 
                 {{ data.profile.profession }}
               </p>
@@ -71,17 +64,12 @@
                   href="https://www.google.com/maps/place/Villa+Ex+Magni+Rizzoli/@45.8527137,9.270366,17z/data=!3m1!4b1!4m5!3m4!1s0x47841e4836e82773:0x4e1bed367587a67b!8m2!3d45.85271!4d9.27256"
                   target="_blank"
                   rel="noopener noreferrer"
-                  ><font-awesome-icon
-                    icon="globe"
-                    v-bind:class="[
-                      'h-4 fill-current',
-                      `text-${data.theme.color}-700`,
-                    ]"
-                /></a>
+                  >📌</a
+                >
 
                 {{ data.profile.location }} -
                 <a
-                  class="link mx-1"
+                  class="link mx-1 underline"
                   href="http://www.villaexmagnirizzoli.it/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -89,7 +77,7 @@
                 >
                 -
                 <a
-                  class="link ml-1"
+                  class="link ml-1 underline"
                   href="https://www.google.com/maps/place/Villa+Ex+Magni+Rizzoli/@45.8527137,9.270366,17z/data=!3m1!4b1!4m5!3m4!1s0x47841e4836e82773:0x4e1bed367587a67b!8m2!3d45.85271!4d9.27256"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -125,34 +113,24 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.instagram.com/explore/tags/francoetiziana/"
-                  class="link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center"
+                  v-bind:class="[
+                    'link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center text-gray-600',
+                    `hover:text-${data.theme.color}-700`,
+                  ]"
                 >
-                  <font-awesome-icon
-                    :icon="['fab', 'instagram']"
-                    size="2x"
-                    class=""
-                    v-bind:class="[
-                      'fill-current text-gray-600 ml-3 mr-3 lg:ml-0 lg:mr-5',
-                      `hover:text-${data.theme.color}-700`,
-                    ]"
-                  />
+                  <span class="fill-current ml-3 mr-3 lg:ml-0 lg:mr-5">🍿</span>
                   <span>#francoetiziana</span>
                 </a>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
                   v-bind:href="`${data.theme.backgroundImage.url}`"
-                  class="link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center"
+                  v-bind:class="[
+                    'link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center text-gray-600',
+                    `hover:text-${data.theme.color}-700`,
+                  ]"
                 >
-                  <font-awesome-icon
-                    :icon="['fas', 'image']"
-                    size="2x"
-                    class=""
-                    v-bind:class="[
-                      'fill-current text-gray-600 ml-3 mr-3 lg:ml-0 lg:mr-5',
-                      `hover:text-${data.theme.color}-700`,
-                    ]"
-                  />
+                  <span class="fill-current ml-3 mr-3 lg:ml-0 lg:mr-5">🌈</span>
                   <span>Guarda l'invito</span>
                 </a>
               </div>
