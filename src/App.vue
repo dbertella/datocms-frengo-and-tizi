@@ -17,45 +17,30 @@
         }"
       >
         <div
-          class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0"
+          class="max-w-4xl flex items-center h-auto flex-wrap mx-auto my-32"
         >
           <!--Main Col-->
           <div
             id="profile"
             v-bind:class="[
-              'w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl opacity-75 mx-6 lg:mx-0',
+              'w-full lg:w-3/5 rounded-lg shadow-2xl opacity-75 mx-auto ',
               nightMode ? 'bg-gray-900' : 'bg-white',
             ]"
           >
-            <div class="p-4 md:p-12 text-center lg:text-left">
-              <!-- Image for mobile view-->
-              <div class="block lg:hidden">
-                <datocms-image
-                  class="rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-                  :data="data.profile.photo.mobileImage"
-                />
-              </div>
-
-              <h1 class="text-3xl font-bold pt-8 lg:pt-0">
+            <div class="p-4 md:p-12 text-center">
+              <h1 class="text-5xl font-bold pt-8 lg:pt-0 great-vibes">
                 {{ data.profile.name }}
               </h1>
               <div
                 v-bind:class="[
-                  'mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 opacity-25',
+                  'mx-auto w-4/5 pt-3 border-b-2 opacity-25',
                   `border-${data.theme.color}-500`,
                 ]"
               ></div>
               <p
-                class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"
-              >
-                <span class="pr-4">💍</span>
-
-                {{ data.profile.profession }}
-              </p>
-              <p
                 class=""
                 v-bind:class="[
-                  'pt-2 text-xs lg:text-sm flex items-center justify-center lg:justify-start',
+                  'pt-2 text-xs lg:text-sm flex items-center justify-center',
                   nightMode ? 'text-gray-400' : 'text-gray-900',
                 ]"
               >
@@ -84,8 +69,8 @@
                   >map</a
                 >
               </p>
-              <p class="pt-8 text-xl">
-                <bold>{{ data.profile.dateAndHours }}</bold>
+              <p class="pt-8 text-3xl great-vibes">
+                <strong>{{ data.profile.dateAndHours }}</strong>
               </p>
               <p class="pt-2 text-base">
                 {{ data.profile.description }}
@@ -104,7 +89,7 @@
                     `hover:bg-${data.theme.color}-900`,
                   ]"
                 >
-                  Scrivi a {{ data.profile.email }}
+                  Conferma scrivendo una mail a {{ data.profile.email }}
                 </a>
               </div>
 
@@ -121,29 +106,8 @@
                   <span class="fill-current ml-3 mr-3 lg:ml-0 lg:mr-5">🍿</span>
                   <span>#francoetiziana</span>
                 </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  v-bind:href="`${data.theme.backgroundImage.url}`"
-                  v-bind:class="[
-                    'link text-xl mt-6 w-1/2 mx-auto flex flex-wrap items-center justify-center text-gray-600',
-                    `hover:text-${data.theme.color}-700`,
-                  ]"
-                >
-                  <span class="fill-current ml-3 mr-3 lg:ml-0 lg:mr-5">🌈</span>
-                  <span>Guarda l'invito</span>
-                </a>
               </div>
             </div>
-          </div>
-
-          <div class="w-full lg:w-2/5 hidden lg:block">
-            <!-- Big profile image for side bar (desktop) -->
-            <datocms-image
-              :data="data.profile.photo.desktopImage"
-              class="rounded-none lg:rounded-lg shadow-2xl"
-            />
-            <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
           </div>
 
           <!-- Pin to top right corner -->
@@ -201,20 +165,11 @@ export default {
             dateAndHours
             description
             graditaConferma
-            profession
             location
             email
             coordinates {
               latitude
               longitude
-            }
-            photo {
-              desktopImage: responsiveImage(imgixParams: { w: 360, h: 680, fit: crop, crop: faces, auto: format }) {
-                ...imageFields
-              }
-              mobileImage: responsiveImage(imgixParams: { w: 192, h: 192, fit: crop, crop: faces, auto: format }) {
-                ...imageFields
-              }
             }
           }
           theme {
@@ -233,16 +188,16 @@ export default {
           content
           tag
         }
-        fragment imageFields on ResponsiveImage {
-          srcSet
-          sizes
-          src
-          width
-          height
-          alt
-          title
-          base64
-        }
+        # fragment imageFields on ResponsiveImage {
+        #   srcSet
+        #   sizes
+        #   src
+        #   width
+        #   height
+        #   alt
+        #   title
+        #   base64
+        # }
       `,
     });
   },

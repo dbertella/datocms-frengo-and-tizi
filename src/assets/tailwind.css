@@ -3,3 +3,7 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.great-vibes {
+  font-family: "Great Vibes", cursive;
+}
